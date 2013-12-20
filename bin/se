@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Set Environment
+gnome-terminal \
+    --working-directory=/home/dag/tailf \
+    --geometry="100x55" \
+    --tab  --title="1 - make all" \
+    --tab  --title="2 - make" \
+    --tab  --title="3 - ncs -i" \
+    --tab  --title="4 - ncs_cli" \
+    --tab  --title="5 - logs" \
+    --tab  --title="6 - lux"
+

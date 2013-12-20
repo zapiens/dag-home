@@ -1,0 +1,20 @@
+#!/bin/bash
+# Check Last Commit
+
+FILES=$(git show --name-status | grep -e '^A[[:space:]]' -e '^M[[:space:]]' | cut -f2)
+echo $FILES
+
+echo ">>>>>>> long lines in"
+for i in $FILES; do
+    cat $i | cut -c81- | grep -n -v '^$' | sed -e "s%^%$i %"
+done
+
+echo ">>>>>>> tabs in"
+for i in $FILES; do
+    cat $i | grep -n  $'\t' | sed -e "s%^%$i %"
+done
+
+echo ">>>>>>> trailing spaces in"
+for i in $FILES; do
+    cat $i | grep -n  ' $' | sed -e "s%^%$i %"
+done

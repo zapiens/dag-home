@@ -1,0 +1,14 @@
+#!/bin/bash
+if [[ -d $1 ]]; then
+cat - > $1/.gitignore <<EOF
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+EOF
+   git add -f $1/.gitignore
+
+   echo "$1/.gitignore: " "$(head -n1 $1/.gitignore)"
+else
+   echo "$0: \"$1\" is Not a directory"
+fi
